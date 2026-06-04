@@ -5,167 +5,973 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Marvin Nyalia Ochieng — Web Developer &amp; Creative Professional | Nairobi, Kenya</title>
 <meta name="description" content="Marvin Nyalia Ochieng is a Nairobi-based web developer, brand designer, and digital strategist. I build fast websites, strong brands, and digital experiences that work hard and deliver results."/>
-<meta name="keywords" content="web developer Nairobi, brand designer Kenya, UI UX designer, freelance developer Nairobi, Marvin Nyalia Ochieng, portfolio, digital strategy Kenya"/>
+<meta name="keywords" content="web developer Nairobi, brand designer Kenya, UI UX designer, freelance developer Nairobi, portfolio"/>
 <meta name="author" content="Marvin Nyalia Ochieng"/>
-<meta property="og:title" content="Marvin Nyalia Ochieng — Web Developer &amp; Creative Professional"/>
-<meta property="og:description" content="Nairobi-based creative professional building digital experiences that work hard, impress, and connect. Available for freelance projects worldwide."/>
-<meta property="og:type" content="website"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Marvin Nyalia Ochieng — Portfolio"/>
-<link rel="canonical" href="https://marvinnyalia.com"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
-:root{
-  --gold:#d4a853;--gold-l:#f0c97a;--gold-d:#a07830;
-  --copper:#c17a4a;--bg:#0c0c0c;--bg2:#111111;--bg3:#161616;
-  --surface:rgba(255,255,255,0.03);--surface2:rgba(255,255,255,0.06);
-  --border:rgba(212,168,83,0.18);--border2:rgba(255,255,255,0.08);
-  --text:#e8e0d0;--text-dim:#7a7060;--text-mid:#a89880;--white:#faf8f5;
-  --fd:'Playfair Display',Georgia,serif;
-  --fb:'DM Sans',system-ui,sans-serif;
-  --fm:'DM Mono',monospace;
-  --ease:cubic-bezier(0.25,0.46,0.45,0.94);
-  --ease2:cubic-bezier(0.16,1,0.3,1);
-}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;font-size:16px;}
-body{background:var(--bg);color:var(--text);font-family:var(--fb);overflow-x:hidden;line-height:1.6;}
-::selection{background:rgba(212,168,83,0.25);color:var(--white);}
-img{max-width:100%;display:block;}
-a{text-decoration:none;color:inherit;}
-
-/* ══ NOISE OVERLAY ══ */
-body::before{
-  content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.025;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' result='noise'/%3E%3C/filter%3E%3Crect width='256' height='256' fill='white' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size:200px 200px;
+:root {
+  --gold: #d4a853;
+  --gold-l: #f0c97a;
+  --copper: #c17a4a;
+  --bg: #0c0c0c;
+  --bg2: #111111;
+  --bg3: #161616;
+  --text: #e8e0d0;
+  --text-dim: #7a7060;
+  --white: #faf8f5;
 }
 
-/* ══ CURSOR ══ */
-#cur{position:fixed;z-index:9999;pointer-events:none;mix-blend-mode:difference;}
-#cur-ring{width:36px;height:36px;border:1.5px solid var(--gold);border-radius:50%;transform:translate(-50%,-50%);transition:width .25s var(--ease),height .25s var(--ease),opacity .25s;}
-#cur-dot{width:6px;height:6px;background:var(--gold);border-radius:50%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
-body:has(a:hover) #cur-ring{width:54px;height:54px;opacity:.6;}
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-/* ══ NAV ══ */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 clamp(24px,5vw,72px);height:70px;
-  transition:background .4s,backdrop-filter .4s;
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
 }
-nav.scrolled{background:rgba(12,12,12,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border2);}
-.nav-brand{
-  font-family:var(--fd);font-size:20px;font-weight:700;
-  color:var(--white);letter-spacing:-.5px;cursor:pointer;
-}
-.nav-brand span{color:var(--gold);}
-.nav-links{display:flex;align-items:center;gap:clamp(20px,3vw,44px);list-style:none;}
-.nav-links a{
-  font-size:13px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;
-  color:var(--text-dim);transition:color .25s;cursor:pointer;position:relative;
-}
-.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--gold);transition:width .3s var(--ease);}
-.nav-links a:hover,.nav-links a.active{color:var(--white);}
-.nav-links a:hover::after,.nav-links a.active::after{width:100%;}
-.nav-cta{
-  font-family:var(--fb);font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
-  color:var(--bg);background:var(--gold);padding:10px 24px;border-radius:2px;cursor:pointer;
-  transition:background .25s,transform .25s,box-shadow .25s;
-}
-.nav-cta:hover{background:var(--gold-l);transform:translateY(-1px);box-shadow:0 8px 24px rgba(212,168,83,.3);}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;border:none;background:none;}
-.hamburger span{display:block;width:22px;height:1.5px;background:var(--white);transition:all .3s;}
 
-/* ══ PAGES ══ */
-.page{
-  position:absolute;top:0;left:0;width:100%;min-height:100vh;
-  opacity:0;pointer-events:none;
-  transition:opacity .6s var(--ease),transform .6s var(--ease);
-  transform:translateY(20px);z-index:2;
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
 }
-.page.active{opacity:1;pointer-events:all;transform:translateY(0);position:relative;}
 
-/* ══ RESPONSIVE ══ */
-@media(max-width:768px){
-  .hamburger{display:flex;}.nav-cta{display:none;}
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+button { cursor: pointer; }
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(24px, 5vw, 72px);
+  height: 70px;
+  background: rgba(12, 12, 12, 0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.nav-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.nav-brand span { color: var(--gold); }
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links a {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: color 0.25s;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-cta {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--bg);
+  background: var(--gold);
+  padding: 10px 24px;
+  border-radius: 2px;
+  border: none;
+  transition: background 0.25s;
+}
+
+.nav-cta:hover {
+  background: var(--gold-l);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+  border: none;
+  background: none;
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--white);
+}
+
+/* PAGES */
+.page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s, transform 0.6s;
+  transform: translateY(20px);
+  z-index: 2;
+}
+
+.page.active {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+  position: relative;
+}
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px clamp(24px, 5vw, 72px) 80px;
+  padding-top: 150px;
+}
+
+.hero-left {
+  max-width: 600px;
+}
+
+.display {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(40px, 7vw, 88px);
+  font-weight: 900;
+  line-height: 1.02;
+  color: var(--white);
+  letter-spacing: -0.03em;
+  margin-bottom: 28px;
+}
+
+.display em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hero-desc {
+  font-size: clamp(15px, 1.6vw, 17px);
+  line-height: 1.9;
+  color: var(--text-dim);
+  margin-bottom: 44px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 15px 36px;
+  border-radius: 2px;
+  border: none;
+  transition: all 0.3s;
+}
+
+.btn-gold {
+  background: var(--gold);
+  color: var(--bg);
+}
+
+.btn-gold:hover {
+  background: var(--gold-l);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-outline:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.wrap {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 clamp(24px, 5vw, 72px);
+}
+
+.section-pad {
+  padding: clamp(80px, 12vw, 140px) 0;
+}
+
+/* ABOUT PAGE */
+.about-content {
+  padding-top: 150px;
+}
+
+.about-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 100px);
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.about-photo {
+  width: 100%;
+  aspect-ratio: 4/5;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--bg3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 5vw, 60px);
+  font-weight: 900;
+  line-height: 1.05;
+  color: var(--white);
+  margin-bottom: 28px;
+}
+
+.about-text p {
+  font-size: clamp(14px, 1.5vw, 16px);
+  line-height: 1.9;
+  color: var(--text-dim);
+  margin-bottom: 18px;
+}
+
+/* PORTFOLIO PAGE */
+.portfolio-intro {
+  padding: clamp(80px, 12vw, 140px) 0 60px;
+  padding-top: 150px;
+}
+
+.eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.port-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 60px;
+}
+
+.port-card {
+  background: var(--bg3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+
+.port-card:hover {
+  border-color: rgba(212, 168, 83, 0.25);
+  transform: translateY(-6px);
+}
+
+.port-card-img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: var(--bg2);
+  overflow: hidden;
+}
+
+.port-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.port-card-body {
+  padding: 28px 32px;
+}
+
+.port-card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(18px, 2.5vw, 26px);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.port-card-desc {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.8;
+}
+
+/* SERVICES PAGE */
+.services-content {
+  padding-top: 150px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 60px;
+}
+
+.service-card {
+  background: var(--bg3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  padding: 40px;
+  transition: all 0.3s;
+}
+
+.service-card:hover {
+  background: rgba(212, 168, 83, 0.04);
+  border-color: rgba(212, 168, 83, 0.2);
+  transform: translateY(-4px);
+}
+
+.service-icon {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.service-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 14px;
+}
+
+.service-desc {
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.8;
+}
+
+/* SKILLS PAGE */
+.skills-content {
+  padding-top: 150px;
+}
+
+.skill-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-top: 60px;
+}
+
+.skill-category {
+  background: var(--bg3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 36px;
+  border-radius: 4px;
+}
+
+.skill-cat-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.skill-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 13px;
+}
+
+.skill-name {
+  color: var(--text-mid);
+}
+
+.skill-bar {
+  flex: 1;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.07);
+  margin: 0 12px;
+  border-radius: 1px;
+}
+
+.skill-pct {
+  color: var(--gold);
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  min-width: 30px;
+  text-align: right;
+}
+
+/* CONTACT PAGE */
+.contact-content {
+  padding-top: 150px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.contact-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(32px, 5vw, 58px);
+  font-weight: 900;
+  color: var(--white);
+  margin-bottom: 24px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.contact-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 24px;
+}
+
+.contact-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.contact-value {
+  font-size: 15px;
+  color: var(--white);
+  font-weight: 500;
+}
+
+.contact-value a {
+  color: inherit;
+  transition: color 0.2s;
+}
+
+.contact-value a:hover {
+  color: var(--gold);
+}
+
+.contact-form {
+  background: var(--bg3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  padding: 48px;
+}
+
+.form-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.form-sub {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  color: var(--text-dim);
+  letter-spacing: 2px;
+  margin-bottom: 36px;
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.form-input, .form-textarea {
+  width: 100%;
+  background: var(--bg2);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+  padding: 14px 18px;
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.25s;
+}
+
+.form-input:focus, .form-textarea:focus {
+  border-color: rgba(212, 168, 83, 0.5);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 16px;
+  background: var(--gold);
+  color: var(--bg);
+  border: none;
+  border-radius: 2px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.submit-btn:hover {
+  background: var(--gold-l);
+  transform: translateY(-2px);
+}
+
+/* FOOTER */
+footer {
+  margin-top: clamp(60px, 10vw, 120px);
+  padding: clamp(60px, 8vw, 100px) 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 14px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+  .nav-links { display: none; }
+  .nav-cta { display: none; }
+  
+  .about-hero, .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .port-grid, .services-grid, .skill-categories {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .display {
+    font-size: clamp(34px, 11vw, 56px);
+  }
 }
 </style>
 </head>
 <body>
 
-<div id="progress-bar"></div>
-<div id="page-veil"></div>
-<button id="scroll-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
-</button>
-
-<!-- ══ NAV ══ -->
+<!-- NAV -->
 <nav id="main-nav">
   <div class="nav-brand" onclick="showPage('home')">Marvin<span>.</span></div>
-  <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+  <button class="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
   <ul class="nav-links" id="nav-links">
-    <li><a onclick="showPage('home')" data-page="home" class="active">Home</a></li>
+    <li><a onclick="showPage('home')" data-page="home">Home</a></li>
     <li><a onclick="showPage('about')" data-page="about">About</a></li>
     <li><a onclick="showPage('portfolio')" data-page="portfolio">Work</a></li>
     <li><a onclick="showPage('services')" data-page="services">Services</a></li>
     <li><a onclick="showPage('skills')" data-page="skills">Skills</a></li>
     <li><a onclick="showPage('contact')" data-page="contact">Contact</a></li>
   </ul>
-  <div class="nav-cta" onclick="showPage('contact')">Hire Me</div>
+  <button class="nav-cta" onclick="showPage('contact')">Hire Me</button>
 </nav>
 
-<!-- ════════════════════════════════════════
-     PAGE 1 — HOME
-════════════════════════════════════════ -->
+<!-- PAGE: HOME -->
 <div class="page active" id="page-home">
   <div class="hero">
     <div class="hero-left">
-      <div class="hero-bg-text">M(Nyalia)O</div>
-      <div class="hero-available">
-        <span class="avail-dot"></span>
-        Available for new projects — Let's build something remarkable
-      </div>
-      <div class="typing-wrap">
-        <span id="typed"></span><span class="tcursor"></span>
-      </div>
-      <div class="hero-title">
-        <span class="small-line">Hi, I'm Marvin —</span>
-        <div class="display">
-          Turning bold<br/>ideas into<br/><em>real things.</em>
-        </div>
-      </div>
-      <p class="hero-desc">
-        I'm a Nairobi-based creative professional who builds digital experiences that don't just exist online — they work hard, they impress, and they genuinely connect with people.
-      </p>
+      <div class="display">Turning bold<br/>ideas into<br/><em>real things.</em></div>
+      <p class="hero-desc">I'm a Nairobi-based creative professional who builds digital experiences that work hard, impress, and connect with people. Whether it's a website, brand identity, or digital strategy — I deliver excellence.</p>
       <div class="hero-actions">
-        <a class="btn btn-gold" onclick="showPage('portfolio')">
-          See My Work
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a class="btn btn-outline" onclick="showPage('contact')">Let's Talk</a>
+        <button class="btn btn-gold" onclick="showPage('portfolio')">See My Work →</button>
+        <button class="btn btn-outline" onclick="showPage('contact')">Let's Talk</button>
       </div>
     </div>
   </div>
 </div>
 
+<!-- PAGE: ABOUT -->
+<div class="page" id="page-about">
+  <div class="wrap">
+    <div class="about-content">
+      <div class="about-hero">
+        <div class="about-photo">
+          <img src="page%201.png" alt="Marvin Nyalia Ochieng">
+        </div>
+        <div class="about-text">
+          <div class="eyebrow">Who I Am</div>
+          <h2>I build things<br/>that <em>matter.</em></h2>
+          <p>My name is <strong>Marvin Nyalia Ochieng</strong>, and I bring together web development, brand design, and strategic thinking to create digital experiences that genuinely work.</p>
+          <p>Based in <strong>Nairobi, Kenya</strong>, I work with businesses and entrepreneurs across Africa and beyond — turning ideas into powerful digital solutions.</p>
+          <p>Every project I take on gets 100% commitment, clear communication, and a focus on real results that move the needle for your business.</p>
+          <div style="margin-top: 40px; display: flex; gap: 12px; flex-wrap: wrap;">
+            <button class="btn btn-gold" onclick="showPage('contact')">Get In Touch</button>
+            <button class="btn btn-outline" onclick="showPage('portfolio')">See My Work</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE: PORTFOLIO -->
+<div class="page" id="page-portfolio">
+  <div class="wrap">
+    <div class="portfolio-intro">
+      <div class="eyebrow">Selected Work</div>
+      <h1 class="display">Things I've<br/>built with <em>care.</em></h1>
+      <p style="font-size: clamp(15px, 1.8vw, 18px); line-height: 1.9; color: var(--text-dim); max-width: 600px; margin-top: 16px;">Each project represents thoughtful design, clean code, and a commitment to solving real problems.</p>
+    </div>
+    
+    <div class="port-grid">
+      <div class="port-card">
+        <div class="port-card-img">
+          <img src="page%201.png" alt="Web Development Project">
+        </div>
+        <div class="port-card-body">
+          <div style="font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 10px;">Web Development</div>
+          <h3 class="port-card-title">Complete Digital Overhaul</h3>
+          <p class="port-card-desc">Full-scope web redesign and development for a growing Nairobi business. 240% increase in organic traffic.</p>
+        </div>
+      </div>
+      
+      <div class="port-card">
+        <div class="port-card-img">
+          <img src="page2.png" alt="Brand Identity Project">
+        </div>
+        <div class="port-card-body">
+          <div style="font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 10px;">Branding</div>
+          <h3 class="port-card-title">Brand Identity Design</h3>
+          <p class="port-card-desc">Complete brand overhaul for an emerging startup. From strategy to visual identity and guidelines.</p>
+        </div>
+      </div>
+      
+      <div class="port-card">
+        <div class="port-card-img">
+          <img src="page3.png" alt="UI/UX Redesign Project">
+        </div>
+        <div class="port-card-body">
+          <div style="font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 10px;">UI/UX</div>
+          <h3 class="port-card-title">Mobile App Redesign</h3>
+          <p class="port-card-desc">User-focused UX redesign that improved engagement and reduced support tickets by 45%.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE: SERVICES -->
+<div class="page" id="page-services">
+  <div class="wrap">
+    <div class="services-content">
+      <div class="eyebrow">What I Do</div>
+      <h1 class="display">Services that<br/><em>deliver results.</em></h1>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🌐</div>
+          <h3 class="service-title">Web Development</h3>
+          <p class="service-desc">Fast, responsive websites built with modern technologies. SEO-optimized and focused on user experience.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">🎨</div>
+          <h3 class="service-title">Brand Design</h3>
+          <p class="service-desc">Complete brand identities, logos, and design systems that communicate your value and stand out.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">✏️</div>
+          <h3 class="service-title">UI/UX Design</h3>
+          <p class="service-desc">User-centered design for digital products. Wireframes, prototypes, and high-fidelity designs.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">📊</div>
+          <h3 class="service-title">Digital Strategy</h3>
+          <p class="service-desc">Strategic planning for your online presence. From content to positioning to growth tactics.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">📱</div>
+          <h3 class="service-title">Responsive Design</h3>
+          <p class="service-desc">Mobile-first approach. Your site looks perfect on every device and screen size.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">⚡</div>
+          <h3 class="service-title">Performance</h3>
+          <p class="service-desc">Fast-loading sites that rank well and convert. Speed and performance are non-negotiable.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE: SKILLS -->
+<div class="page" id="page-skills">
+  <div class="wrap">
+    <div class="skills-content">
+      <div class="eyebrow">My Expertise</div>
+      <h1 class="display">Skills &amp;<br/><em>Tools.</em></h1>
+      
+      <div class="skill-categories">
+        <div class="skill-category">
+          <h3 class="skill-cat-title">Frontend</h3>
+          <div class="skill-item">
+            <span class="skill-name">HTML/CSS</span>
+            <div class="skill-bar"></div>
+            <span class="skill-pct">95%</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">JavaScript</span>
+            <div class="skill-bar"></div>
+            <span class="skill-pct">90%</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">React</span>
+            <div class="skill-bar"></div>
+            <span class="skill-pct">85%</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Responsive Design</span>
+            <div class="skill-bar"></div>
+            <span class="skill-pct">95%</span>
+          </div>
+        </div>
+        
+        <div class="skill-category">
+          <h3 class="skill-cat-title">Design</h3>
+          <div class="skill-item">
+            <span class="skill-name">Figma</span>
+            <div class="skill-bar"></div>
+            <span class="skill-pct">90%</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">UI/UX Design</span>
+            <div class="skill-bar"></div>
+            <span class="skill-pct">90%</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Branding</span>
+            <div class="skill-bar"></div>
+            <span class="skill-pct">85%</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Typography</span>
+            <div class="skill-bar"></div>
+            <span class="skill-pct">88%</span>
+          </div>
+        </div>
+        
+        <div class="skill-category">
+          <h3 class="skill-cat-title">Tools &amp; Platforms</h3>
+          <div class="skill-item">
+            <span class="skill-name">Git/GitHub</span>
+            <div class="skill-bar"></div>
+            <span class="skill-pct">90%</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">VS Code</span>
+            <div class="skill-bar"></div>
+            <span class="skill-pct">95%</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Adobe Suite</span>
+            <div class="skill-bar"></div>
+            <span class="skill-pct">85%</span>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Vercel/Hosting</span>
+            <div class="skill-bar"></div>
+            <span class="skill-pct">88%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAGE: CONTACT -->
+<div class="page" id="page-contact">
+  <div class="wrap">
+    <div class="contact-content">
+      <div class="contact-grid">
+        <div>
+          <div class="eyebrow">Get In Touch</div>
+          <h1 class="contact-title">Let's build<br/>something <em>amazing.</em></h1>
+          
+          <div class="contact-info">
+            <div class="contact-item">
+              <div class="contact-label">Email</div>
+              <div class="contact-value"><a href="mailto:ochiengmarvin4004@gmail.com">ochiengmarvin4004@gmail.com</a></div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-label">Location</div>
+              <div class="contact-value">Nairobi, Kenya</div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-label">Phone</div>
+              <div class="contact-value">Available for calls & WhatsApp</div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-label">Response Time</div>
+              <div class="contact-value">Usually within 24 hours</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form">
+          <h2 class="form-title">Send Me a Message</h2>
+          <p class="form-sub">I'll get back to you within 24 hours</p>
+          
+          <form onsubmit="handleFormSubmit(event)">
+            <div class="form-group">
+              <label class="form-label">Name</label>
+              <input type="text" class="form-input" required>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-input" required>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">Project Type</label>
+              <input type="text" class="form-input" placeholder="Website, Branding, UI/UX, etc." required>
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label">Message</label>
+              <textarea class="form-textarea" required></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <p>&copy; 2026 Marvin Nyalia Ochieng. All rights reserved. | Nairobi, Kenya</p>
+  </div>
+</footer>
+
 <script>
 function showPage(pageName) {
-  console.log('Navigating to:', pageName);
-  // Add page navigation logic here
+  // Hide all pages
+  document.querySelectorAll('.page').forEach(page => {
+    page.classList.remove('active');
+  });
+  
+  // Show selected page
+  const page = document.getElementById('page-' + pageName);
+  if (page) {
+    page.classList.add('active');
+  }
+  
+  // Update nav active state
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.classList.remove('active');
+  });
+  document.querySelector(`a[data-page="${pageName}"]`).classList.add('active');
+  
+  // Close menu if open
+  document.getElementById('nav-links').classList.remove('open');
+  
+  // Scroll to top
+  window.scrollTo(0, 0);
 }
 
 function toggleMenu() {
-  const nav = document.getElementById('nav-links');
-  if (nav) {
-    nav.classList.toggle('open');
-  }
+  document.getElementById('nav-links').classList.toggle('open');
+}
+
+function handleFormSubmit(event) {
+  event.preventDefault();
+  alert('Thank you for your message! I will get back to you within 24 hours.');
+  event.target.reset();
 }
 
 // Initialize
 document.addEventListener('DOMContentLoaded', function() {
-  console.log('Portfolio site loaded');
+  // Set first page as active
+  showPage('home');
 });
 </script>
 
